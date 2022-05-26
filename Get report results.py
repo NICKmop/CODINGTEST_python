@@ -22,10 +22,12 @@ def solution(id_list, report, k):
         else:
             n += 1;
             logMsg(report_attacker[0], report_attacker[1])
+            
     answer.append(m);
     answer.append(f);
     answer.append(a);
     answer.append(n);
+    
     return answer
 
 solution(id_list, report, k);
