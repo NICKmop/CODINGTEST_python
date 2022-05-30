@@ -27,10 +27,6 @@ def solution(id_list, report, k):
     answer.append(f);
     answer.append(a);
     answer.append(n);
-<<<<<<< HEAD
-=======
-    
->>>>>>> 279d403c941635b54db19b8869f568d3bea803de
     return answer
 
 solution(id_list, report, k);
