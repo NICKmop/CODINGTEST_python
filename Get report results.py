@@ -4,7 +4,7 @@ k = 2;
 
 def logMsg(param1, param2):
     return print('"{}" 가 "{}" 를 신고 했습니다.'.format(param1, param2));
-
+    
 def solution(id_list, report, k):
     m,f,a,n = 0,0,0,0;
     answer = []
@@ -30,7 +30,6 @@ def solution(id_list, report, k):
     answer.append(f);
     answer.append(a);
     answer.append(n);
-    print(answer);
     return answer
 
 solution(id_list, report, k);
