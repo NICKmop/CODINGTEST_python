@@ -45,9 +45,7 @@ def checkWithNumber(word):
             attachWord = "";
             # attachWord = "";
 
-        print(attachWord)
-    print(wordBox);
-    return NULL;
+    return wordBox;
 
 
 def solution(s):
