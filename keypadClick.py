@@ -7,18 +7,10 @@ def pos(num, left, right, hand):
         7:(2,0), 8:(2,1), 9:(2,2),
         '*':(3,0), 0:(3,1), '#':(3,2)
     }
-    print(" kp[num][0] : ", kp[num][0]);
-    print(" kp[left][0] : ", kp[left][0]);
-    print(" kp[right][0] : ", kp[right][0]);
-    print("kp - left : ", kp[num][0] - kp[left][0]);
-    print("kp - right : ", kp[num][0] - kp[right][0]);
 
     # (x1, y2), (x2, y2)의 좌표간 거리는 |x1 - x2| + |y1 - y2|
     dist_left = abs(kp[num][0] - kp[left][0]) + abs(kp[num][1] - kp[left][1])
     dist_right = abs(kp[num][0] - kp[right][0]) + abs(kp[num][1] - kp[right][1])
-
-    print(" dist_left : ", dist_left);
-    print(" dist_right : ", dist_right);
 
     # 입력된 키와 거리가 가까운 손가락의 결과 리턴
     if dist_left < dist_right:
@@ -49,7 +41,6 @@ def solution(nums, hand):
             right = num
         else:                   # 입력된 숫자가 2, 5, 8, 0일 경우
             mid = pos(num, left, right, hand)
-            print( "mid : ", mid);
             result += mid
             if mid == 'R':
                 right = num
@@ -59,4 +50,3 @@ def solution(nums, hand):
     return result
 
 res = solution(nums=[1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], hand="right");
-print(res); # LRLLLRLLRRL
