@@ -8,8 +8,6 @@ def solution(s):
         count = 1
     
     # 단위(step) 크기만큼 증가시키며 이전 문자열과 비교
-        print("step  : " , step);
-        print("len(s) : " , len(s));
         for j in range(step, len(s), step):
         # 1~8 2~8 3~8
         # 이전 상태와 동일하다면 압축 횟수(count) 증가
