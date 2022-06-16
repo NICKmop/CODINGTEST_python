@@ -6,6 +6,7 @@ def solution(progresses, speeds):
     funcDay = [];
     cnt = 0; 
     tnt = 0;
+    
     extmp = 0;
     
     for i in range(len(progresses)):
