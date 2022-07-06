@@ -1,31 +1,24 @@
 def solution(numbers):
-    extend = [];
-    # 6102 6210 1062 1026 2610 2106
-    tmp = len(numbers);
-
-    for i in range(len(numbers)): # 6102
-        strNum = str(numbers[i]);
-        extend.extend(strNum);
-        print("strNum : ", strNum);
-        if i == tmp:
-            tmp -= 1;
-            print("tmp : " , tmp);
-            print("if strNum : ", strNum);
-        # for j in range(-1, len(numbers)-1): # 2610
-        #     print(numbers[j])
-        # for k in strNum:
-        #     print("k : ", k);
-
-    # for i in range(-1, len(numbers)-1): # 2610
-    #     print(numbers[i])
-    
-    # for i in range(1, len(numbers)):
-    #     print(i)
-
     answer = ''
+    strnum = list(map(str, numbers));
+
+    # '//' 이 연산자는 몫을 반환하는 연산자
+    same_length = [[i, i * (12//len(i)) ] for i in strnum]
+
+    ch = same_length.sort(key=lambda x:x[1], reverse=True)
+
+    for i in same_length:
+        answer += i[0]
+
+    test ='';
+    for k in ['1','5','2','3','4']:
+        print("k : " , k)
+        test += k[0];
+
+    answer = str(int(answer))
+    print(answer);
+
+
     return answer
-
-solution(numbers=[6,10,2]);
-
-# [6, 10, 2]	"6210"
-# [3, 30, 34, 5, 9]	"9534330"
+# solution(numbers=[6,10,2]);
+solution(numbers=[3,30,34,5,9]);
