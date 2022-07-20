@@ -2,8 +2,8 @@ import firebase_admin
 from log.log import Log
 from firebase_admin import credentials
 from firebase_admin import db
-class Database:
 
+class Database:
     DB_URL = "https://accounts.google.com/o/oauth2/auth"
     CRED = credentials.Certificate("database/firebase/firebase_key.json")
     
