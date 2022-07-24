@@ -1,8 +1,4 @@
 import firebase_admin
-from log.log import Log
-from firebase_admin import credentials
-from firebase_admin import db
-
 class Database:
     DB_URL = "https://accounts.google.com/o/oauth2/auth"
     CRED = credentials.Certificate("database/firebase/firebase_key.json")
@@ -14,13 +10,13 @@ class Database:
 
     def connect(self):
         
-        self._client = firebase_admin.initialize_app(self.CRED, {'databaseURL':self.DB_URL})
+        self._client = firebase.database.initialize_app(self.CRED, {'databaseURL':self.DB_URL})
         
         if (self._client is None):
-            Log.d(self, "could not connect to Firebase")
+            print(self._client)
             return False
 
-        Log.d(self, "connect to Firebase")
+        print(self._client)
         return True 
             
     def insert(self):
