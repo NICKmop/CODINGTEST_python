@@ -1,36 +1,38 @@
-import firebase_admin
-from log.log import Log
-from firebase_admin import credentials
-from firebase_admin import db
-class Database:
+import re
+# 1478 → "one4seveneight"
+# 234567 → "23four5six7"
+# 10203 → "1zerotwozero3"
+# s	                result
+# "one4seveneight"	1478
 
-    DB_URL = "https://accounts.google.com/o/oauth2/auth"
-    CRED = credentials.Certificate("database/firebase/firebase_key.json")
-    
-    def __init__(self):
-        
-        self._client = None
-        self._db = None
+word = ["zero","one","two","three","four","five","six","seven","eight","nine"];
+num = ['0','1','2','3','4','5','6','7','8','9'];
 
-    def connect(self):
-        
-        self._client = firebase_admin.initialize_app(self.CRED, {'databaseURL':self.DB_URL})
-        
-        if (self._client is None):
-            Log.d(self, "could not connect to Firebase")
-            return False
+def solution(s):
+    attachBox = '';
+    tooBox = [];
+    answer = '';
 
-        Log.d(self, "connect to Firebase")
-        return True 
-            
-    def insert(self):
-        pass
-    
-    def update(self):
-        pass
-    
-    def delete(self):
-        pass
-    
-    def find(self):
-        pass
+    for words in s:
+        attachBox += words;
+        for i in range(0,len(word)):
+            if attachBox == word[i]:
+                tooBox.append(attachBox);
+                attachBox = attachBox[len(attachBox):];
+            elif (attachBox >= '0' and attachBox <= '9'):
+                tooBox.append(attachBox);
+                attachBox = attachBox[len(attachBox):];
+
+    for tooBoxs in range(len(tooBox)):
+        for nums in zip(word,num):
+            if tooBox[tooBoxs] == nums[0]:
+                answer += nums[1];
+            else:
+                answer += tooBox[tooBoxs];
+
+    #     print(nums[1]);
+    #     if nums[0] == 
+    print(answer);
+
+
+solution(s="1zerotwozero3");
